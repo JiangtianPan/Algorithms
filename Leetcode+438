@@ -1,0 +1,27 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        lenp = len(p)
+        lens = len(s)
+        if lens == 0:
+            return []
+        elif lenp > lens:
+            return []
+        listp = [0] * 26
+        lists = [0] * 26
+        result = []
+        for j in range(lenp):
+            listp[ord(p[j]) - ord('a')] += 1
+        i = 0
+        for k in range(lenp):
+                lists[ord(s[i+k]) - ord('a')] += 1
+        while i <= lens - lenp:
+            print(i)
+            if lists == listp:
+                result.append(i)
+            lists[ord(s[i]) - ord('a')] -= 1
+            if i+lenp < lens:
+                lists[ord(s[i+lenp]) - ord('a')] += 1
+            else:
+                break
+            i += 1
+        return result
