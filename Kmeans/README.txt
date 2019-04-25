@@ -1,0 +1,1 @@
+python3 kmeans.py -database_file=database.txt -k=6 -max_iters=1000 -eps=0.1 -output_file=output.txt
